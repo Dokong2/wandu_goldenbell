@@ -33,7 +33,7 @@ def serveropen():
     print("서버를 오픈하시려면 [start]를 입력하세요.")
     print("서버 매뉴얼을 읽으시려면 [help]를 입력하세요.")
     while True:
-        start = input
+        start = input(">>")
         if start == "help":
             print("완두골든밸 1.0 기준 서버 매뉴얼입니다.")
             print("통신 서버 포트는 기본 포트가 [8080]입니다.")
