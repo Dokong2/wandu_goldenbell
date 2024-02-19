@@ -20,7 +20,8 @@ def serveropen():
         elif start == "start":
             print("서버 실행중...")
             print("서버 소켓을 생성합니다...")
+            wandu = 
             goldenbellserver = socket.socket
-            goldenbellserver.bind("127.0.0.1",8080)
+            goldenbellserver.bind("127.0.0.1",)
             print("서버 1이 생성되었습니다. 포트 : 8080")
 
