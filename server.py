@@ -19,7 +19,8 @@ def client_login(conn):
     while True:
             logindata = conn.recv(1024).decode()
             if logindata[0:5] == "login":
-                print("로그인 되었습니다.")
+                comlist[conn] : logindata[6:]
+                print("로그인 되었습니다. 아이디 : " + logindata[6:])
         
 
 def serveropen():
@@ -35,8 +36,8 @@ def serveropen():
         start = input
         if start == "help":
             print("완두골든밸 1.0 기준 서버 매뉴얼입니다.")
-            print("서버1 포트는 기본 포트가 [8080]입니다.")
-            print("채팅서버 포트는 기본 포트가 [1010]입니다.")
+            print("통신 서버 포트는 기본 포트가 [8080]입니다.")
+            print("채팅 서버 포트는 기본 포트가 [1010]입니다.")
             print("포트로 서버가 열리면 클라이언트를 대기하고 진행상태를 알아서 보고합니다.")
             print("서버 매뉴얼은 이것으로 끝입니다.")
         elif start == "start":
@@ -57,6 +58,7 @@ def serveropen():
             comserver = socket.socket
             comserver.bind("127.0.0.1", int(port))
             print("모든 서버가 생성됐습니다.")
+            comsee()
 
 if __name__ == "__main__":
     serveropen()
