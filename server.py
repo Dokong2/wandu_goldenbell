@@ -2,20 +2,24 @@ import threading
 import socket
 chatserver = None
 comserver = None
-conn = None
-addr = None
+comlist = {}
 # made by wandukong
 # ver 1.0
 
-
 def comsee():
-    global comserver, conn, addr
+    global comserver,comlist
     print("com 서버 클라이언트 접속 대기중입니다..")
     comserver.listen(2)
     while True:
         comserver.accept(conn,addr)
-        print("com 서버에 누군가 접속했습니다. 지금 로그인을 대기 중입니다...")
+        print("com 서버에 누군가 접속했습니다. 지금 로그인을 대기 중입니다... 어드레스 : " + str(addr))
+        client_login(conn=conn)
 
+def client_login(conn):
+    while True:
+            logindata = conn.recv(1024).decode()
+            if logindata[0:5] == "login":
+                print("로그인 되었습니다.")
         
 
 def serveropen():
@@ -53,4 +57,6 @@ def serveropen():
             comserver = socket.socket
             comserver.bind("127.0.0.1", int(port))
             print("모든 서버가 생성됐습니다.")
-            
+
+if __name__ == "__main__":
+    serveropen()
