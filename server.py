@@ -7,7 +7,6 @@ addr = None
 # made by wandukong
 # ver 1.0
 
-
 def comsee():
     global comserver, conn, addr
     print("com 서버 클라이언트 접속 대기중입니다..")
