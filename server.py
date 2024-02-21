@@ -1,13 +1,17 @@
 import threading
 import socket
 import time
+now = None
 brodoserver = None
 comlist = {}
 # made by wandukong
-#!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!화장실이급한!
-
+# 닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다
+def timeupdate():
+    global now
+    now = time
 
 def nowtime():
+    global now
     return now.localtime().tm_hour + " : " + now.localtime().tm_min + " : " + now.localtime().tm_sec + " "
 
 def clientlogin():
@@ -38,6 +42,8 @@ def serveropen():
     print("브로도캐스트 서버가 생성됐습니다.")
     print("")
     print(nowtime + "클라이언트 대기를 시작합니다...")
+    brodoserver.close()
+    loginserver.close()
 
 if __name__ == "__main__":
     serveropen()
