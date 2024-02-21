@@ -24,7 +24,7 @@ def clientlogin():
         print("어드레스 : " + str(addr))
         print(nowtime + "콘 정보를 데이터에 저장합니다.")
         logindata = conn.recv(1024).decode
-        print("사용자가 로그인 됬습니다. ")
+        print("사용자가 로그인 됐습니다. ")
 
 def serveropen():
     global brodoserver
