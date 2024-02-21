@@ -44,4 +44,5 @@ def serveropen():
     print(nowtime + "클라이언트 대기를 시작합니다...")
 
 if __name__ == "__main__":
+    threading.Thread(target=timeupdate).start
     serveropen()
