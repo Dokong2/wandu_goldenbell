@@ -18,6 +18,12 @@ def clientlogin():
         logindata = conn.recv(1024).decode
         name = logindata[6:]
         print("사용자가 로그인 됐습니다. 닉네임 : " + name)
+        conn.send("loginok".encode())
+        print("comm 통신을 시작합니다.")
+
+def comm(conn):
+    while True:
+        conn.recv
 
 
 def serveropen():
