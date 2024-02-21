@@ -5,7 +5,7 @@ now = None
 brodoserver = None
 comlist = {}
 # made by wandukong
-# 닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다닭강정겁나맛있다
+# 스플연어런잼있다스플연어런잼있다스플연어런잼있다스플연어런잼있다스플연어런잼있다스플연어런잼있다
 def timeupdate():
     global now
     now = time
@@ -22,8 +22,9 @@ def clientlogin():
         print(nowtime + "클라이언트가 접속했습니다.")
         print("콘 : " + str(conn))
         print("어드레스 : " + str(addr))
-
         print(nowtime + "콘 정보를 데이터에 저장합니다.")
+        logindata = conn.recv(1024).decode
+        print("사용자가 로그인 됬습니다. ")
 
 def serveropen():
     global brodoserver
@@ -40,10 +41,7 @@ def serveropen():
     brodoserver = socket.socket()
     brodoserver.bind((host, port2))
     print("브로도캐스트 서버가 생성됐습니다.")
-    print("")
     print(nowtime + "클라이언트 대기를 시작합니다...")
-    brodoserver.close()
-    loginserver.close()
 
 if __name__ == "__main__":
     serveropen()
